@@ -1,0 +1,21 @@
+TimeGenerated,UserPrincipalName,IPAddress,ResultType,AppDisplayName
+2026-11-12T09:00:00Z,admin@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:01:00Z,admin@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:02:00Z,finance@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:02:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:03:00Z,finance@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:03:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:04:00Z,helpdesk@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:04:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:05:00Z,helpdesk@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:05:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:06:00Z,hr@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:06:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:07:00Z,hr@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:07:00Z,alice@example.test,203.0.113.20,50126,HR Portal
+2026-11-12T09:08:00Z,security@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:09:00Z,security@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:10:00Z,operations@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:11:00Z,operations@example.test,198.51.100.45,50126,Microsoft 365
+2026-11-12T09:18:00Z,admin@example.test,198.51.100.45,0,Microsoft 365
+2026-11-12T09:21:00Z,bob@example.test,192.0.2.30,0,Microsoft 365

@@ -1,0 +1,71 @@
+[
+  {
+    "rule_id": "AUTH-002",
+    "title": "Successful sign-in after password spray pattern",
+    "severity": "Critical",
+    "mitre_technique": "T1110.003 / T1078",
+    "observed_at_utc": "2026-11-12T09:18:00Z",
+    "evidence": {
+      "ip": "198.51.100.45",
+      "account": "admin@example.test",
+      "spray_failed_signins": 10,
+      "spray_distinct_accounts": 5
+    },
+    "analyst_next_step": "Treat as potential account compromise: validate authentication/MFA, session and device context; escalate and seek approval for session revocation or account reset.",
+    "status": "Needs human validation"
+  },
+  {
+    "rule_id": "AUTH-001",
+    "title": "Multi-account password spray pattern",
+    "severity": "High",
+    "mitre_technique": "T1110.003",
+    "observed_at_utc": "2026-11-12T09:09:00Z",
+    "evidence": {
+      "ip": "198.51.100.45",
+      "failed_signins": 10,
+      "distinct_users": 5,
+      "accounts": [
+        "admin@example.test",
+        "finance@example.test",
+        "helpdesk@example.test",
+        "hr@example.test",
+        "security@example.test"
+      ],
+      "window_start": "2026-11-12T09:00:00Z",
+      "window_end": "2026-11-12T09:09:00Z"
+    },
+    "analyst_next_step": "Validate the source and user activity; inspect Conditional Access/MFA and associated sign-ins; request identity containment approval if suspicious.",
+    "status": "Needs human validation"
+  },
+  {
+    "rule_id": "IDENTITY-001",
+    "title": "Account added to a security-enabled group",
+    "severity": "High",
+    "mitre_technique": "T1098.007",
+    "observed_at_utc": "2026-11-12T09:30:00Z",
+    "evidence": {
+      "host": "DC-01",
+      "actor": "EXAMPLE\\svc-admin",
+      "added_member": "EXAMPLE\\test-user",
+      "group": "Domain Admins",
+      "event_id": "4728"
+    },
+    "analyst_next_step": "Verify group sensitivity and approved change ticket; contact the identity owner. Do not remove membership automatically without authorization.",
+    "status": "Needs human validation"
+  },
+  {
+    "rule_id": "ENDPOINT-001",
+    "title": "Potentially suspicious PowerShell execution",
+    "severity": "Medium",
+    "mitre_technique": "T1059.001",
+    "observed_at_utc": "2026-11-12T09:24:00Z",
+    "evidence": {
+      "host": "WS-ENG-01",
+      "account": "EXAMPLE\\analyst",
+      "process": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "command_line": "powershell.exe -NoProfile -EncodedCommand [synthetic-redacted]"
+    },
+    "analyst_next_step": "Review the parent process, script content if available, execution context, Defender timeline and approved administration activity before containment.",
+    "status": "Needs human validation"
+  }
+]

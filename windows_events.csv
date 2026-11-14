@@ -1,0 +1,5 @@
+TimeGenerated,Computer,EventID,Account,NewProcessName,CommandLine,MemberName,TargetUserName
+2026-11-12T09:24:00Z,WS-ENG-01,4688,EXAMPLE\analyst,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,powershell.exe -NoProfile -EncodedCommand [synthetic-redacted],,
+2026-11-12T09:25:00Z,WS-OPS-02,4688,EXAMPLE\operator,C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe,powershell.exe -NoProfile -Command Get-Date,,
+2026-11-12T09:30:00Z,DC-01,4728,EXAMPLE\svc-admin,,,EXAMPLE\test-user,Domain Admins
+2026-11-12T09:32:00Z,DC-01,4624,EXAMPLE\operator,,,,

@@ -1,0 +1,5 @@
+rule_id,title,data_source,severity,mitre_technique,proposed_frequency,proposed_lookback,tuning_note
+AUTH-001,Multi-account password spray pattern,SigninLogs,High,T1110.003,30 minutes,1 day,Exclude known identity testing hosts only after review
+AUTH-002,Success after spray pattern,SigninLogs,Critical,T1110.003 + T1078,30 minutes,1 day,Validate approved sign-ins and MFA status
+ENDPOINT-001,Suspicious PowerShell markers,SecurityEvent,Medium,T1059.001,15 minutes,1 day,Review signed administrative scripts and commandline logging
+IDENTITY-001,Security group membership addition,SecurityEvent,High,T1098.007,15 minutes,1 day,Restrict to privileged groups after mapping actual group identifiers

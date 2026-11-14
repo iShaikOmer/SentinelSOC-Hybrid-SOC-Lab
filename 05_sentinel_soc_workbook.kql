@@ -1,0 +1,6 @@
+// Example workbook visual: authentication outcome count by hour (requires SigninLogs).
+SigninLogs
+| where TimeGenerated > ago(7d)
+| extend Outcome = iff(tostring(ResultType) == "0", "Success", "Failure")
+| summarize Events=count() by bin(TimeGenerated, 1h), Outcome
+| order by TimeGenerated asc

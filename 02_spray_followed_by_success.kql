@@ -1,0 +1,17 @@
+// AUTH-002 | Successful sign-in following spray-like activity | T1110.003 + T1078
+// Flagged sign-ins indicate potential risk and require validation; they do not prove compromise.
+// Uses fixed 30-minute bins for inexpensive scheduled detection. Tune time-window edge cases.
+let SpraySource = SigninLogs
+| where TimeGenerated > ago(1d)
+| where tostring(ResultType) != "0"
+| summarize FailureCount=count(), AccountCount=dcount(UserPrincipalName),
+            FirstFailure=min(TimeGenerated), LastFailure=max(TimeGenerated)
+    by IPAddress, FailureWindow=bin(TimeGenerated, 30m)
+| where FailureCount >= 10 and AccountCount >= 5;
+SigninLogs
+| where TimeGenerated > ago(1d)
+| where tostring(ResultType) == "0"
+| join kind=inner (SpraySource) on IPAddress
+| where TimeGenerated between (LastFailure .. LastFailure + 30m)
+| project TimeGenerated, IPAddress, UserPrincipalName, AppDisplayName,
+          FailureCount, AccountCount, FirstFailure, LastFailure, FailureWindow

@@ -1,0 +1,9 @@
+// ENDPOINT-001 | PowerShell with encoded/decoding/download markers | T1059.001
+// Requires Windows Security Event 4688 and command-line auditing; this is a heuristic.
+SecurityEvent
+| where TimeGenerated > ago(1d)
+| where EventID == 4688
+| where tolower(NewProcessName) contains "powershell" or tolower(NewProcessName) contains "pwsh"
+| extend Cmd = tolower(CommandLine)
+| where Cmd contains "encodedcommand" or Cmd contains "frombase64string" or Cmd contains "downloadstring"
+| project TimeGenerated, Computer, Account, NewProcessName, CommandLine, EventID
